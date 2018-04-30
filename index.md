@@ -1,6 +1,17 @@
 ---
-# You don't need to edit this file, it's empty on purpose.
-# Edit theme's home layout instead if you wanna make some changes
-# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-layout: home
+title: "Refactoring myself..."
+description: "... and running the unit tests!"
+layout: default
 ---
+
+{% for post in site.posts %}
+
+<article class="Blog__post">
+    <div class="Blog__content" onclick="location.href='{{ post.url | prepend: site.baseurl }}';">
+        <div class="Blog__body" style="text-align: left">
+            <h2 class="Blog__header">Q: {{ post.title }}</h2>
+        </div>
+    </div>
+</article>
+
+{% endfor %}

@@ -22,11 +22,18 @@ url: "http://cris.live" # the base hostname & protocol for your site, e.g. http:
 #twitter_username: jekyllrb
 #github_username:  jekyll
 
+# Paginator
+paginate_path: "faq/page:num"
+
 # Build settings
 markdown: kramdown
-theme: minima
+highlighter: rouge
+permalink: pretty
+paginate: 5
+#theme: minima
 plugins:
   - jekyll-feed
+#  - jekyll-paginate
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

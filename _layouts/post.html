@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% include head.html %}
+
+<body class="blog">
+    <div class="VanHack" class="hfeed site">
+        
+        {% include nav.html %}
+
+        <div class="SiteContent">
+            <section class="Blog">
+
+                <div class="Container">
+                    <h1>VanHack FAQ</h1>
+                    <h1 class="Dark Large">{{ page.title }}</h1>
+                </div>
+
+                <div class="Blog__posts Container"> 
+                    <p class="Dark Medium">{{ content | remove: '<p>' | remove: '</p>' }}
+                </div>
+
+                <div class="Container">
+                    Categories:
+                    {% for tag in page.tags %}
+                    <a href="#{{ category }}">#{{ tag | downcase }}</a>
+                    {% endfor %}
+                    &nbsp;/&nbsp;
+                    <span class="meta">Updated on {{ page.date | date: "%B %-d, %Y" }}</span>
+                </div>
+                <br />
+                <div class="Container">
+                <ul class="pager">
+                    <a href="{{ site.url }}{{ site.baseurl }}/" data-toggle="tooltip" data-placement="top">Index</a>
+                    &nbsp;/&nbsp;
+                    {% if page.previous.url %}
+                    <a href="{{ page.previous.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.previous.title}}">&larr; Previous Post</a>
+                    {% endif %}
+                    &nbsp;/&nbsp;
+                    {% if page.next.url %}
+                    <a href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}" data-toggle="tooltip" data-placement="top" title="{{page.next.title}}">Next Post &rarr;</a>
+                    {% endif %}
+                </ul>
+                </div>
+            </section>
+        </div>
+
+        {% include footer.html %}
+    
+    </div> 
+
+    {% include analytics.html %}
+
+    {% include tracking.html %}
+    
+    {% include scripts.html %}
+</body>
+</html>
